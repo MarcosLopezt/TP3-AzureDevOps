@@ -39,3 +39,21 @@ app.post("/login", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en puerto ${PORT}`);
 });
+
+// --- RECOVER PASSWORD UI + ENDPOINTS ---
+app.get("/forgot-password", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "recover.html"));
+});
+
+app.post("/forgot-password", (req, res) => {
+  const { email } = req.body || {};
+  if (!email)
+    return res.status(400).json({ ok: false, error: "email es obligatorio" });
+
+  const ttl = parseInt(process.env.RECOVERY_TOKEN_TTL_MINUTES || "15", 10);
+  // token demo (no sensible)
+  const token = Math.random().toString(36).slice(2, 10);
+
+  console.log(`[RECOVER DEMO] email=${email} token=${token} ttl=${ttl}min`);
+  res.json({ ok: true, email, token, expiresInMinutes: ttl });
+});
