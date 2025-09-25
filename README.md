@@ -8,8 +8,3 @@ El objetivo fue aplicar y demostrar el uso práctico de Azure DevOps en un flujo
 Azure Repos: Repositorio principal configurado en el proyecto.
 GitHub (este repo): Contiene documentación (README.md, decisiones.md) y evidencias del TP.
 
-
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
